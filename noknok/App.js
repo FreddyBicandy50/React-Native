@@ -1,13 +1,23 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { Image,ScrollView,View, StyleSheet, Text, Pressable, Alert } from "react-native";
-import ItemView from './components/items'
+import {
+  Button,
+  Image,
+  ScrollView,
+  View,
+  StyleSheet,
+  Text,
+  Pressable,
+  Alert,
+} from "react-native";
+import ItemView from "./components/items";
+import Cmodal from "./components/modal";
 
 export default function App() {
   const [isPressed, setIsPressed] = useState(false);
   const [address, setAddress] = useState("click to change address");
   const time = Math.floor(Math.random() * 20) + 1;
-  
+
   const LBP = 89700;
   const Items = [
     require("./assets/sitos.png"),
@@ -69,9 +79,10 @@ export default function App() {
           </View>
           <View style={styles.row}>
             <ItemView name="Sitos" Item={Items[3]} cost={0.57} LBP={LBP} />
+          <Cmodal></Cmodal>
           </View>
+        
         </ScrollView>
-		<View></View>
       </View>
     </View>
   );
@@ -115,4 +126,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#5DADF8",
   },
+
 });
